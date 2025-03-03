@@ -726,18 +726,18 @@
                       <h3>For Consumers</h3>
                       <ul>
                         <li><a href="about-us.html">About Us</a></li>
-                        <!-- <li><a href="board-of-directors.html">Directors</a></li> -->
-                        <!-- <li><a href="beware-of-fake.html">Beware of Fake</a></li> -->
-                        <!-- <li><a href="managing-workers.html">Management</a></li> -->
-                        <!-- <li><a href="awards.html">Awards</a></li> -->
                         <li><a href="#">Shifting Process</a></li>
-                        <!-- <li><a href="achievements.html">Achievements</a></li> -->
-                        <!-- <li><a href="usp.html">Our USP</a></li> -->
                         <li><a href="#">Customer Care</a></li>
                         <li><a href="#">Testimonials</a></li>
                         <li><a href="#">Urbanshift Packers Group</a></li>
                         <li><a href="#">Our History</a></li>
                         <li><a href="#">Customer Review</a></li>
+                        <!-- <li><a href="board-of-directors.html">Directors</a></li> -->
+                        <!-- <li><a href="beware-of-fake.html">Beware of Fake</a></li> -->
+                        <!-- <li><a href="managing-workers.html">Management</a></li> -->
+                        <!-- <li><a href="awards.html">Awards</a></li> -->
+                        <!-- <li><a href="achievements.html">Achievements</a></li> -->
+                        <!-- <li><a href="usp.html">Our USP</a></li> -->
                       </ul>
                     </div>
                     <div class="overlay-col">
@@ -3321,6 +3321,37 @@
           document.getElementById('stdvfrcorpcompnmmv').style.display = "none";
           document.getElementById('stdvfrcorremarkmv').style.display = "none";
         }
+
+        function stnhdswdvintrnalfrm(gtmovtypdt) {
+        document.getElementById("getPgcategory").value = gtmovtypdt;
+        document.getElementById("cngtabdtvl").innerHTML = gtmovtypdt;
+        if (gtmovtypdt == "Domestic Moving" || gtmovtypdt == "Secure Storage") {
+          document.getElementById('chkdomstmbnorq').style.display = "block";
+          document.getElementById('chkintnsnlmbnorq').style.display = "none";
+        } else {
+          document.getElementById('chkdomstmbnorq').style.display = "none";
+          document.getElementById('chkintnsnlmbnorq').style.display = "block";
+        }
+        if (gtmovtypdt == "Secure Storage") {
+          document.getElementById('shwidpermactst').style.display = "none";
+          document.getElementById('stdvshwhdstoragetype').style.display = "block";
+        } else {
+          document.getElementById('shwidpermactst').style.display = "block";
+          document.getElementById('stdvshwhdstoragetype').style.display = "none";
+        }
+        if (gtmovtypdt == "Corporate Moving" || gtmovtypdt == "GMS Moving") {
+          document.getElementById('shwidpermactst').style.display = "none";
+          document.getElementById('stdvfrpincodemv').style.display = "block";
+          document.getElementById('stdvfrservicetypmv').style.display = "block";
+          document.getElementById('stdvfrcorpcompnmmv').style.display = "block";
+          document.getElementById('stdvfrcorremarkmv').style.display = "block";
+        } else {
+          document.getElementById('stdvfrpincodemv').style.display = "none";
+          document.getElementById('stdvfrservicetypmv').style.display = "none";
+          document.getElementById('stdvfrcorpcompnmmv').style.display = "none";
+          document.getElementById('stdvfrcorremarkmv').style.display = "none";
+        }
+      }
 
         // if (gtmovtypdt == "International Moving") {
         //   document.getElementById('stdvlocfrmshwrhd').style.display = "none";
