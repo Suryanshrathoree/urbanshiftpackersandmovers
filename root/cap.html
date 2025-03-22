@@ -1,0 +1,57 @@
+<form id="captchaForm" method="POST" action="submit.php">
+    <div class="form-group captcha_code clearfix">
+        <input 
+            name="captcha_text" 
+            id="captcha_code_input" 
+            placeholder="Enter Captcha*" 
+            class="form-control" 
+            type="text" 
+            onblur="validateCaptcha();"
+            required>
+        
+        <span>
+            <img id="captcha_code" src="captcha.php" width="120" height="40" alt="captcha">
+        </span>
+        
+        <button type="button" onclick="refreshCaptcha();" class="btnRefresh">
+            <i class="fa fa-refresh"></i>
+        </button>
+
+        <span id="captcha_status" style="color: red;"></span>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+function refreshCaptcha() {
+    document.getElementById('captcha_code').src = 'captcha.php?' + Date.now(); // Refresh the captcha image
+}
+
+function validateCaptcha() {
+    var captchaValue = document.getElementById('captcha_code_input').value;
+
+    if (captchaValue === "") {
+        document.getElementById('captcha_status').innerText = "Captcha is required.";
+        return false;
+    }
+
+    // AJAX request to validate captcha
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'validate_captcha.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            if (xhr.responseText.trim() === 'success') {
+                document.getElementById('captcha_status').style.color = "green";
+                document.getElementById('captcha_status').innerText = "Captcha is valid.";
+            } else {
+                document.getElementById('captcha_status').style.color = "red";
+                document.getElementById('captcha_status').innerText = "Invalid Captcha. Try again.";
+                refreshCaptcha(); // Refresh if wrong
+            }
+        }
+    };
+    xhr.send('captcha_text=' + encodeURIComponent(captchaValue));
+}
+</script>
