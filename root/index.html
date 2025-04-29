@@ -15,13 +15,13 @@
     content="Urban Shift, packers and movers, movers and packers, Urbanshift in, Urban shift., packers, movers, Urban shift in, packers and movers services, packers movers delhi, National packers and movers, packers and Movers india, packers and movers noida, Urban shifts relocation, Urban shifterspackers, Urban shiftersmovers, packers and movers noida, packers and movers chennai, car transporation service, packers and movers company, packers and movers ahmedabad, expert packers and movers.">
   <meta charset="UTF-8" />
   <link rel="shortcut icon" href="/images/urbanshifters-packers-and-movers.png" />
-  <link rel="preload" href='font/Roboto-Regular.svg' as="font" type="font/svg" crossOrigin="anonymous" />
+  <link rel="preload" href='font/Roboto-Regular.svg' as="font" crossorigin="anonymous" />
   <link rel="preload" href='font/Roboto-Regular.woff' as="font" type="font/woff" crossOrigin="anonymous" />
-  <link rel="preload" href='font/Roboto-Light.svg' as="font" type="font/svg" crossOrigin="anonymous" />
+  <link rel="preload" href='font/Roboto-Light.svg' as="font"  crossOrigin="anonymous" />
   <link rel="preload" href='font/Roboto-Light.woff' as="font" type="font/woff" crossOrigin="anonymous" />
-  <link rel="preload" href='font/Roboto-Medium.svg' as="font" type="font/svg" crossOrigin="anonymous" />
+  <link rel="preload" href='font/Roboto-Medium.svg' as="font" crossOrigin="anonymous" />
   <link rel="preload" href='font/Roboto-Medium.woff' as="font" type="font/woff" crossOrigin="anonymous" />
-  <link rel="preload" href='font/Roboto-Bold.svg' as="font" type="font/svg" crossOrigin="anonymous" />
+  <link rel="preload" href='font/Roboto-Bold.svg' as="font" crossOrigin="anonymous" />
   <link rel="preload" href='font/Roboto-Bold.woff' as="font" type="font/woff" crossOrigin="anonymous" />
   <link href="css/intlTelInput.css" rel="stylesheet" type="text/css" />
   <link rel="preload" href="css/easy-responsive-tabs.min.css" as="style"
@@ -161,11 +161,11 @@
       margin-right: 10px;
     }
 
-    .content-rt li .bg_hs_locker {
+    /* .content-rt li .bg_hs_locker {
       background: url("images/hs_locker.png") no-repeat;
       width: 25px;
       height: 25px;
-    }
+    } */
 
     .bg-call {
       width: 32px;
@@ -548,7 +548,7 @@
                       </a>
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="no-img">
                       <a href="javascript:;" class="reportpopupdtlsbox" data-related="viewreportpopupdetails"
                         onclick="openviewreportdetailsBox();">
@@ -557,7 +557,7 @@
                         <span>Our Services</span>
                       </a>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -864,7 +864,7 @@
           <div class="main-menu-txt">
             <div class="mtop15">
               <ul class="clearfix">
-                <li><span class="main-title">International Move?</span></li>
+                <li><span class="main-title">Move across India?</span></li>
                 <li><a href="tel:9300300300"><img loading="lazy" class="lazyload" src="images/dial.png" alt=""
                       width="20" height="20"> (+91)- 8050516492</a></li>
               </ul>
@@ -927,7 +927,7 @@
               </div>
             </div>
           </div>
-          <div class="item">
+          <!-- <div class="item">
             <div class="item-box">
               <div class="media-sl-img">
                 <div class="row marg0">
@@ -977,8 +977,8 @@
                 </div>
               </div>
             </div>
-          </div>
-          <div class="item">
+          </div> -->
+          <!-- <div class="item">
             <div class="item-box">
               <div class="media-sl-img">
                 <div class="row marg0">
@@ -1014,7 +1014,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -1210,10 +1210,14 @@
                     <div class="col-lg-3 col-sm-6 col-xs-12" id="stdvlocfrmshwrhd">
                       <div class="form-group">
                         <input type=text id="Origin_Location" class="form-control Locationfrom" placeholder="From*"
-                          autocomplete="off"
-                          onblur="reqchkFieldValidation('Origin_Location','Location From is required', 'kycreqcustlocfromeMSG')" />
-                        <div id="kycreqcustlocfromeMSG" class="error"></div>
-                        <input type=hidden id="storiginlocrqtblid" class="form-control" />
+                          autocomplete="off"/>
+                          <input type="hidden" id="storiginlocrqtblid" class="form-control" />
+                          <div id="kycreqcustlocfromeMSG" class="error"></div>
+                          <!-- onblur="reqchkFieldValidation('Origin_Location','Location From is required', 'kycreqcustlocfromeMSG')"  -->
+                          <!-- <input type="text" id="Origin_Location" class="form-control Locationfrom" placeholder="From*" autocomplete="off" onclick="GetLocations()" />
+                          <ul id="locationDropdown" class="location-dropdown" style="display:none; position: absolute; background-color: white; border: 1px solid #ccc; max-height: 200px; overflow-y: auto; width: 100%; z-index: 9999;">   
+                          </ul> -->
+                          
                       </div>
                     </div>
 
@@ -1295,23 +1299,37 @@
                         <div id="vwcreqcustloctoeMSG"></div>
                       </div>
                     </div>
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                      <div class="form-group captcha_code clearfix">
-                        <input name="captcha_text" id="Captcha Code" placeholder="Enter Captcha*" class="form-control"
-                          type=text
-                          onblur="requiredFieldValidation('Captcha Code','dom_captcdevaleMSG','Captcha','Captcha Code');authchkcaptchavl('Captcha Code','dom_captcdevaleMSG');">
-                        <span><img loading="lazy" id="captcha_code" src="captcha.php" width="65" height="25"
-                            alt="captcha"></span>
-                        <button type=button name=btnRefresh
-                          onClick="$(this).parent().find('#captcha_code').attr('src','captcha_code.jpg');"
-                          class="page_speed_909973392 btnRefresh">
-                          <i class="fa fa-refresh"></i></button>
+                    <div class="col-lg-3 col-sm-6 col-xs-12" id="stdvshwhdstoragetype">
+                      <div class="form-group">
+                        <select class="form-control" id="Storage Type"
+                          onblur="requiredFieldValidation('Storage Type','kycreqstoragetypeMSG');">
+                          <option value="">Select Storage Type</option>
+                          <option value="Records Management Services" data-sortnm="106" data-webtype="10"
+                            data-goodstype="10" data-custtype="C">Records Management Services</option>
+                          <option value="Household Storage" data-sortnm="102" data-webtype="4" data-goodstype="1"
+                            data-custtype="I">Household Storage</option>
+                          <option value="Car Storage" data-sortnm="103" data-webtype="4" data-goodstype="3"
+                            data-custtype="I">Car Storage</option>
+                          <option value="Two Wheeler Storage" data-sortnm="104" data-webtype="4" data-goodstype="7"
+                            data-custtype="I">Two Wheeler Storage</option>
+                          <option value="Office Goods Storage" data-sortnm="105" data-webtype="4" data-goodstype="4"
+                            data-custtype="C">Office Goods Storage</option>
+                          <option value="Document Storage" data-sortnm="107" data-webtype="11" data-goodstype="11"
+                            data-custtype="C">Document Storage</option>
+                          <option value="Business Storage" data-sortnm="108" data-webtype="12" data-goodstype="12"
+                            data-custtype="C">Business Storage</option>
+                          <option value="Warehousing Space" data-sortnm="109" data-webtype="12" data-goodstype="12"
+                            data-custtype="C">Warehousing Space</option>
+                          <option value="Private Storage Unit" data-sortnm="110" data-webtype="13" data-goodstype="13"
+                            data-custtype="C">Private Storage Unit</option>
+                        </select>
+                        <div id="kycreqstoragetypeMSG" class="error"></div>
                       </div>
                       <div id="dom_captcdevaleMSG" class="error page_speed_507584470"></div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-xs-12">
                       <div class="clearfix xs_center"><button type=button class="sub-btn"
-                          onClick="return chknsndhmpgEnqdtls();">Submit</button></div>
+                          onClick="return submit_form();">Submit</button></div>
                     </div>
                   </div>
                 </form>
@@ -1541,12 +1559,12 @@
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-2">
           <div class="list-brand clearfix mb20">
-            <h4 class="brand-title">Awards</h4>
+            <h4 class="brand-title">Reviews on JustDial</h4>
             <div class="brand-set">
               <!-- <a class="brand-link"><img loading="lazy" class="" src="images/indiacargo.jpg" alt="awards"  width="116" height="100" /></a>
   <a class="brand-link"><img loading="lazy" class="" src="images/manindra-awards.jpg" alt="awards"  width="130" height="43" /></a>
   <a class="brand-link"><img loading="lazy" class="" src="images/jk-award.jpg" alt="awards" width="116" height="100" /></a><a class="brand-link"><img loading="lazy" class="" src="images/zee-awards.jpg" alt="awards"  width="103" height="82" /></a><a class="brand-link"><img loading="lazy" class="" src="images/abp-awards.jpg" alt="awards" width="130" height="74" /></a><a class="brand-link"><img loading="lazy" class="" src="images/ceat-award.jpg" alt="awards" width="130" height="129" /></a> -->
-              <a class="brand_more" href="#">View More</a>
+              <a class="brand_more" href="https://www.justdial.com/Bangalore/Urban-Shift-Packers-and-Movers-Best-movers-packers-Bangalore-RBI-Layout-Jp-Nagar/080PXX80-XX80-250421085535-R3K7_BZDET?auto=1&trkid=1506142882&term=urban%20sPackers%20And%20Movers" target="_blank">View More</a>
             </div>
           </div>
         </div>
@@ -2132,7 +2150,7 @@
       </div>
     </div>
   </div>
-  <!-- <div class="section-five clearfix"><div class="container">
+  <div class="section-five clearfix"><div class="container">
   <h2 class="main-title" data-aos="fade-up" data-aos-duration="1000">Our Testimonials</h2>
   <div class="testimonial-set clearfix"><ul class="resp-tabs-list hor_1"><li>On Words</li><li>On Video</li></ul><div class="resp-tabs-container hor_1"><div class="testimonial-tabs"><div class="testimonial-cnts"><div class="testimonial-slider">
     <h4>Direct from client</h4><div class="owl-carousel owl-theme client-carousel"><div class="item"><div class="client-say">Your team very carefully and meticulously packed all items and got them transported safely to two destinations. This is to acknowledge the superb service rendered by your company.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/E_Sreedharan.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Mr. E. Sreedharan</h3><div class="desination">Principal Advisor</div><div class="website">Delhi Metro Rail Corporation Ltd</div><span class="position d_block">Relocated From New Delhi to Kerala</span></div></div></div><div class="item"><div class="client-say">In one word – it was excellent and I was very surprised with the packing technique they used. I’ll rate them 10 out of 10 and I have been referring their services to lot of my friends and they are equally satisfied.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/sunil-srivastava-sbi.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Mr. Sunil Srivastava</h3><div class="desination">Dy. Managing Director</div><div class="website">State Bank of India</div><span class="position d_block">Relocated from Mumbai to Ranchi</span></div></div></div><div class="item"><div class="client-say">I convey my appreciation for the prompt service and efficiency shown by your company in transporting my household furniture. I was particularly impressed by the courtesy and customer friendly attitude of your staff. Allow me to wish you all the best in your efforts.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/ns-mohan.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Capt. N. S. Mohan Ram</h3><div class="desination"></div><div class="website">TVS Motor Company Limited</div><span class="position d_block">Relocated from New-Delhi to Bangalore</span></div></div></div><div class="item"><div class="client-say">I am happy to testify the diligent and courteous services provided by M/S Urbanshift. in shifting my residence. I particularly appreciated the care and professionalism with which all the items were shifted.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/dr-vinaysali.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Mr. Vinayshil Gautam Founder</h3><div class="desination">Founder Director</div><div class="website">IIM K</div><span class="position d_block">Relocated from IIT Campus to South City I, Gurgaon</span></div></div></div><div class="item"><div class="client-say">M/s. Urban shiftersUrban Shifters in Limited (Urban shiftersMovers Group) unit led by Mr. Ramesh Suryansh, Chairman and his team has done a commendable job and made the packing and relocation work hassle free and trouble free.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/Justice-KJoseph.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Justice Kurian Joseph</h3><div class="desination">Judge</div><div class="website">Supreme Court of India</div><span class="position d_block">Relocated from Delhi to Kerala</span></div></div></div><div class="item"><div class="client-say">The staff of Urban shiftersUrban Shifters in Company and the Chairman in particular have rendered outstanding service which is both efficient and polite. I wish them success.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/urbanshiftpackersandmovers-t-n-seshan.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Mr. T. N. Seshan</h3><div class="desination">Former Chief Election Commissioner of India</div><div class="website">Election Commission of India</div><span class="position d_block">Relocated New Delhi to Hyderabad</span></div></div></div><div class="item"><div class="client-say">I am happy to state that the M/s Urbanshift. Ltd have done their work extremely well and the belongings have been transported safely. The response of company has been excellent and the approach was very customer friendly.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/ajaykumar.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Mr. Ajay Kumar</h3><div class="desination">IAS, Director</div><div class="website">Ministry of Science & Technology</div><span class="position d_block">Relocated from Trivandrum to New Delhi</span></div></div></div><div class="item"><div class="client-say">I work in a service industry too and I can stamp with guarantee that your company is the best and your workforce along with supervisors is asset of your company.</div><div class="clinet-set"><div class="item-img"><img loading="lazy" src="images/pratimaaa.jpg" alt="testimonial" width="80" height="80" /></div><div class="client-texts"><h3>Ms. Pratima Thakar</h3><div class="desination">Associate Director Airline Contracting</div><div class="website">MakeMyTrip. com</div><span class="position d_block"></span></div></div></div></div></div><div class="testimonial-nav"><div class="left-bg" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine"><h2></h2></div><h5>SEGMENTS</h5><div class="custom-nav"><ul class="custom-dots"><li><span class="">Corporate </span><a title="More Detail" href="testimonial-corporate.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">Banking & Finance </span><a title="More Detail" href="testimonial-banking.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">Defence Officers </span><a title="More Detail" href="testimonial-defence.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">IITs/Education </span><a title="More Detail" href="testimonial-iits.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">Judicial Services </span><a title="More Detail" href="testimonial-judicial.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">Govt. of India / Ministries </span><a title="More Detail" href="testimonial-govtofindia.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">IAS / IPS / IRS </span><a title="More Detail" href="testimonial-ias.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">Media & Prominent People </span><a title="More Detail" href="testimonial-media.html#sayingbox" class="bg_sprite bg-more_icon"></a></li><li><span class="">International Appreciations </span><a title="More Detail" href="testimonial-international.html#sayingbox" class="bg_sprite bg-more_icon"></a></li></ul></div></div></div></div></div><div class="clearfix"></div></div>
@@ -2148,7 +2166,7 @@
 <div class="cnt-client"><h3>Urban Shift packers in Sets Up First International Office In Singapore.</h3>
 <p>India's leading logistics player Urban Shift packers (USP) has opened its first international office in Singapore to facilitate relocation of homes both within the country and across the globe. The Singapore operations would be spearheaded by Abhishek Raj singh who has been with the group for the last seven years presiding the Indternational Division, the company said in the statement.</p> </div> <div class="cnt-client"><h3>Urban shiftersPackers Seeks Strategic Partner; Plans Rs. 500-Cr IPO</h3><p>Urbanshift. Ltd, India's biggest relocation company by volume (83,000 relocation assignments in FY16) is seeking a strategic partner to sacle up its business, a company official said. The company, which is also a leading player in the transportation of high-value goods like pharmaceuticals, electronics, food products, is planning a Rs. 500 crore initial public offering to fund expansion plans, the official added.&nbsp;</p></div>
 <div class="cnt-client"><h3>Urban Shift Packers scouts for strategic investor</h3>
-<p>Logistics firm Urban Shift packers has said it well "very soon" bring on board a strategic investor after meeting certain revenue targets and may go for an IPO in the next three years.The Delhi-based company have also drawn up a Rs 650-crore investment plan for the next three years. "We are waiting for the topline to get better", the family-owned firm's Chairman Ramesh Urban shifterstold PTI when asked about capital raised plans.&nbsp;</p></div></div></div></div></div> -->
+<p>Logistics firm Urban Shift packers has said it well "very soon" bring on board a strategic investor after meeting certain revenue targets and may go for an IPO in the next three years.The Delhi-based company have also drawn up a Rs 650-crore investment plan for the next three years. "We are waiting for the topline to get better", the family-owned firm's Chairman Ramesh Urban shifterstold PTI when asked about capital raised plans.&nbsp;</p></div></div></div></div></div>
   <div class="flight_area">
     <div class="container">
       <h2 class="main-title" data-aos="fade-down" data-aos-duration="1000">"Relocate with Ease – Affordable Moving
@@ -2403,8 +2421,8 @@
   <script type="text/javascript" src="datepicker-min.js"></script>
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="js/knockout-min.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAv3896RMyMKgrNxKEMcX_6T62KD-HbvA&libraries=places"></script>
+  <!-- <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAv3896RMyMKgrNxKEMcX_6T62KD-HbvA&libraries=places"></script> -->
   <script>
     var modal = document.querySelector(".modal");
     var triggers = document.querySelectorAll(".trigger");
@@ -2529,7 +2547,7 @@
       });
     }
   </script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     function authchkcaptchavl(cdivid, emsgdid) {
       var gtvalcaptcha = document.getElementById(cdivid).value;
       var fdivId = document.getElementById(cdivid);
@@ -2549,9 +2567,10 @@
         }
       });
     }
-  </script>
+  </script> -->
+
   <script type="text/javascript">
-    function chknsndhmpgEnqdtls() {
+    function submit_form() {
       var strqcndunqvl = "EnqAddnSave2SnedERP";
       var strqurlcndvl = "sendenquirydtlstoerp.html";
       var chkauthstatus = true;
@@ -2681,16 +2700,16 @@
         rqgoodstype = stselectedOption.getAttribute('data-goodstype');
         rqcusttype = stselectedOption.getAttribute('data-custtype');
       }
-      var gtsecrcodevl = document.getElementById('Captcha Code').value;
-      if (gtsecrcodevl == "") {
-        requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
-        chkauthstatus = false;
-        return false;
-      }
+      // var gtsecrcodevl = document.getElementById('Captcha Code').value;
+      // if (gtsecrcodevl == "") {
+      //   requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
+      //   chkauthstatus = false;
+      //   return false;
+      // }
       if (chkauthstatus) {
         $.ajax({
           type: "POST",
-          url: strqurlcndvl,
+          url: "https://localhost:44329/api/adoFormSubmissions/submitEnquires",
           data: {
             sndfulluacname: preqfname,
             sndkycuacmobileno: preqmno,
@@ -2700,17 +2719,17 @@
             sndpreqlocfrom: preqlocfrom,
             sndgreqlocto: greqlocto,
             sndchkfrstpgvartyp: chkfrstpgvartyp,
-            sndfrcontacttype: reqfrcontacttype,
+            //sndfrcontacttype: reqfrcontacttype,
             sndrqwebtype: rqwebtype,
             sndrqgoodstype: rqgoodstype,
             sndrqcusttype: rqcusttype,
-            sndsecrucodevl: gtsecrcodevl,
+            // sndsecrucodevl: gtsecrcodevl,
             sndoriginlocrqtblid: gtoriginlocrqtblid,
             snddestinationlocrqtblid: gtdestinationlocrqtblid,
             sndactrqnmchk: strqcndunqvl,
-            sndrqpincodevl: gtrqpincodevl,
-            sndrqcmpnynmvl: gtrqcmpnynmvl,
-            sndrqmsgvl: gtrqmsgvl,
+            //sndrqpincodevl: gtrqpincodevl,
+            //sndrqcmpnynmvl: gtrqcmpnynmvl,
+            //sndrqmsgvl: gtrqmsgvl,
             sndrqsertypvl: inqtypevlarr
           },
           success: function (response) {
@@ -2719,7 +2738,7 @@
             var gtresvarvl = chkmyArrayres[0];
             var gtresrefunqno = chkmyArrayres[1];
             if (gtresvarvl == "Submitted Successfully!") {
-              var targeturlmst = "https://www.urbanshiftpackersandmovers.com/otpreqprocessingstatus-" + gtresrefunqno + ".html";
+              var targeturlmst = "https://www.urbanshiftpackersandmovers.in/otpreqprocessingstatus-" + gtresrefunqno + ".html";
               var bbsburl = targeturlmst;
               window.location = bbsburl;
             } else if (gtresvarvl == "ThankYou") {
@@ -2735,11 +2754,7 @@
     }
   </script>
 
-  <!-- <script type="text/javascript">
-      $(function () {
-// function GetLoctions(){
-//   console.log("Origin_Location");
-// }
+ <script type="text/javascript">
         $("#Origin_Location").autocomplete({
           
           source: function (request, response) {
@@ -2756,9 +2771,9 @@
                   console.log(data);
                   response($.map(data, function (item) {
                     return {
-                      label: item.stcmname,
-                      gtstassname: item.stcmname,
-                      gtcmasteridvl: item.stcmasterid,
+                    label: item.city,
+                    gtstassname: item.city,
+                    gtcmasteridvl: item.id,
                     };
                   }));
                 },
@@ -2821,16 +2836,15 @@
             }
           },
         });
-      });
-    </script> -->
+    </script>
     
-  <!-- gpt call   -->
 <script type="text/javascript">
       $(function () {
         // Function to fetch all locations from API
         function getLocationsFromApi() {
+          console.log("Origin_Location")
           return $.ajax({
-            url: "https://localhost:44329/api/locations/GetAll",
+            url: "https://localhost:44329/api/locations/getAllLocations",
             type: "GET",
             dataType: "JSON",
             success: function (data) {
@@ -2846,14 +2860,15 @@
         $("#Origin_Location").autocomplete({
           source: function (request, response) {
             var reclocfrmnm = document.getElementById('Origin_Location').value.trim();
+            // console.log("City : ",reclocfrmnm);
             var recPgcategorynm = document.getElementById('getPgcategory').value.trim();
             if (reclocfrmnm != '') {
               getLocationsFromApi().done(function (data) {
                 response($.map(data, function (item) {
                   return {
-                    label: item.stcmname,
-                    gtstassname: item.stcmname,
-                    gtcmasteridvl: item.stcmasterid,
+                    label: item.city,
+                    gtstassname: item.city,
+                    gtcmasteridvl: item.id,
                   };
                 }));
               });
@@ -2861,11 +2876,12 @@
           },
           change: function (event, ui) {
             if (!ui.item) {
+              console.log(ui.item);
               document.getElementById('kycreqcustlocfromeMSG').innerHTML = 'Invalid Location';
               document.getElementById('kycreqcustlocfromeMSG').style.color = "red";
               document.getElementById("Origin_Location").value = "";
             } else {
-              document.getElementById("Origin_Location").value = ui.item.gtstassname;
+              document.getElementById("Origin_Location").value = ui.item.label;
               document.getElementById("storiginlocrqtblid").value = ui.item.gtcmasteridvl;
               document.getElementById('kycreqcustlocfromeMSG').innerHTML = "";
             }
@@ -2880,9 +2896,9 @@
               getLocationsFromApi().done(function (data) {
                 response($.map(data, function (item) {
                   return {
-                    label: item.stcmname,
-                    gtstassname: item.stcmname,
-                    gtcmasteridvl: item.stcmasterid,
+                    label: item.city,
+                    gtstassname: item.city,
+                    gtcmasteridvl: item.id,
                   };
                 }));
               });
@@ -2894,14 +2910,14 @@
               document.getElementById('dom_kycreqcustloctoeMSG').style.color = "red";
               document.getElementById("Destination_Location").value = "";
             } else {
-              document.getElementById("Destination_Location").value = ui.item.gtstassname;
+              document.getElementById("Destination_Location").value = ui.item.label;
               document.getElementById("stdestinationlocrqtblid").value = ui.item.gtcmasteridvl;
               document.getElementById('dom_kycreqcustloctoeMSG').innerHTML = "";
             }
           },
         });
       });
-    </script>
+    </script> 
     
 
   <script type="text/javascript">
@@ -3147,12 +3163,12 @@
         return false;
       }
     } else { greqlocto = "NA"; gtdestinationlocrqtblid = "NA"; }
-    var gtsecrcodevl = document.getElementById('Captcha Code').value;
-    if (gtsecrcodevl == "") {
-      requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
-      chkauthstatus = false;
-      return false;
-    }
+    // var gtsecrcodevl = document.getElementById('Captcha Code').value;
+    // if (gtsecrcodevl == "") {
+    //   requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
+    //   chkauthstatus = false;
+    //   return false;
+    // }
     if (chkauthstatus) {
       $.ajax({
         type: "POST",
@@ -3167,11 +3183,11 @@
           sndgreqlocto: greqlocto,
           sndchkfrstpgvartyp: chkfrstpgvartyp,
           sndfrcontacttype: "",
-          sndrqwebtype: "",
+          //sndrqwebtype: "",
           sndrqgoodstype: "",
-          sndrqcusttype: "",
-          sndsecrucodevl: gtsecrcodevl,
-          sndoriginlocrqtblid: gtoriginlocrqtblid,
+          //sndrqcusttype: "",
+          // sndsecrucodevl: gtsecrcodevl,
+          //sndoriginlocrqtblid: gtoriginlocrqtblid,
           snddestinationlocrqtblid: gtdestinationlocrqtblid,
           sndactrqnmchk: "EnqAddnSave2SnedERP"
         },
@@ -3251,12 +3267,12 @@
           return false;
         }
       } else { greqlocto = "NA"; gtdestinationlocrqtblid = "NA"; }
-      var gtsecrcodevl = document.getElementById('Captcha Code').value;
-      if (gtsecrcodevl == "") {
-        requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
-        chkauthstatus = false;
-        return false;
-      }
+      // var gtsecrcodevl = document.getElementById('Captcha Code').value;
+      // if (gtsecrcodevl == "") {
+      //   requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
+      //   chkauthstatus = false;
+      //   return false;
+      // }
       var stmobnowthcode = gtslcountrycode + "" + preqmno;
       if (chkauthstatus) {
         $.ajax({
@@ -3269,7 +3285,7 @@
             sndpreqlocfrom: preqlocfrom,
             sndgreqlocto: greqlocto,
             sndchkfrstpgvartyp: chkfrstpgvartyp,
-            sndsecrucodevl: gtsecrcodevl,
+            // sndsecrucodevl: gtsecrcodevl,
             sndoriginlocrqtblid: gtoriginlocrqtblid,
             snddestinationlocrqtblid: gtdestinationlocrqtblid,
             sndactrqnmchk: "EnqAddnSave2SnedERP"
