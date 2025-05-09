@@ -11069,7 +11069,7 @@ a.alert_info {
 
 .brand-title {
     margin: 13px 0 20px;
-    color: #aaa;
+    color: #282828;
     font-size: 18px;
     text-transform: uppercase
 }
@@ -13116,7 +13116,7 @@ header.fixedheader .main-header-menu {
 .section-five .resp-tabs-list li {
     width: 100%;
     padding: 0;
-    margin: 0 15px;
+    margin: 0 91px;
     float: none;
     font-weight: 400;
     font-size: 16px;
@@ -13718,7 +13718,7 @@ header.fixedheader .main-header-menu {
     padding-bottom: 20px
 }
 
-/* .section-seven ul.list-sec li:before {
+ .section-seven ul.list-sec li:before {
     position: absolute;
     left: 0;
     top: 4px;
@@ -13731,7 +13731,7 @@ header.fixedheader .main-header-menu {
     -webkit-transition: all 1s;
     -o-transition: all 1s;
     transition: all 1s
-} */
+}
 
 .section-seven ul.list-sec li:nth-child(2):before {
     background-position: -43px -7px
