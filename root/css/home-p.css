@@ -13232,7 +13232,7 @@ header.fixedheader .main-header-menu {
 
 .section-five .owl-carousel .owl-item img {
     max-width: 100%;
-    width: auto;
+    width: 72px;
     max-height: 100px;
     height: auto;
     display: block;
@@ -18094,6 +18094,14 @@ input[type=submit]:hover {
 .mobile-view-icons-main-cus .icons-mobile-view-cus .no-img a {
     color: #393434;
 }
+
+/* .mobile-view-icons-main-cus p {
+    font-size: 13px;
+    line-height: 28px;
+    font-weight: bold;
+    padding-left: 13px;
+    color: red;
+} */
 
 .fixed_right_box {
     background: rgb(255 255 255);
