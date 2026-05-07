@@ -1090,11 +1090,10 @@
         </div>
       </div>
     </div>
-    <div class="home-tab clearfix" style="position: relative;">
+    <div class="home-tab clearfix" style="display:none;">
       <div class="container">
         <div class="home-tab-container clearfix">
           <div id="parentHorizontalTab">
-            <!--<ul class="resp-tabs-list main-tab owl-carousel owl-theme tab-res-slider home_form_tab">-->
             <ul class="resp-tabs-list main-tab home_form_tab">
               <li class="items resp-tab-item hor_1 resp-tab-active">
                 <div class="tab-nav" onclick="('Domestic Moving');"><span class="icon bg-domestic1"></span><span
@@ -2640,51 +2639,6 @@
 
 
 
-  <script>
-    function submitEnquiry() {
-      var name          = document.getElementById('Full Name').value.trim();
-      var mobile        = document.getElementById('Mobile No.').value.trim();
-      var email         = document.getElementById('Email Id.').value.trim();
-      var shifting_type = document.getElementById('Storage Type').value;
-      var from          = document.getElementById('Origin_Location').value.trim();
-      var to            = document.getElementById('Destination_Location').value.trim();
-      var msgDiv        = document.getElementById('enquiry-msg');
-
-      if (!name || !mobile || !email || !from || !to) {
-        msgDiv.style.display = 'block';
-        msgDiv.style.background = '#ffe0e0';
-        msgDiv.style.color = '#c00';
-        msgDiv.textContent = 'Please fill all required fields.';
-        return;
-      }
-
-      fetch('/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, mobile: mobile, email: email, shifting_type: shifting_type, from: from, to: to })
-      })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          msgDiv.style.display = 'block';
-          if (data.success) {
-            msgDiv.style.background = '#e0ffe0';
-            msgDiv.style.color = '#080';
-            msgDiv.textContent = 'Thank you! Your enquiry has been submitted. We will contact you shortly.';
-            document.getElementById('HomapG_Enqform').reset();
-          } else {
-            msgDiv.style.background = '#ffe0e0';
-            msgDiv.style.color = '#c00';
-            msgDiv.textContent = data.message || 'Something went wrong. Please try again.';
-          }
-        })
-        .catch(function() {
-          msgDiv.style.display = 'block';
-          msgDiv.style.background = '#ffe0e0';
-          msgDiv.style.color = '#c00';
-          msgDiv.textContent = 'Network error. Please try again.';
-        });
-    }
-  </script>
 
 
   <script type="text/javascript">
