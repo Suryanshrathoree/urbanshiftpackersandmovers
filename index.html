@@ -1267,11 +1267,11 @@
                     </div>
                     <div class="col-lg-3 col-sm-6 col-xs-12">
                       <div class="clearfix xs_center">
-                        <!-- <button type=button class="sub-btn" onClick="return submit_form();">Submit</button></div> -->
-                        <button type="button" class="sub-btn" onclick="submit_form_and_whatsapp();">Submit</button>
+                        <button type="button" class="sub-btn" onclick="submitEnquiry();">Submit</button>
                       </div>
                     </div>
                 </form>
+                <div id="enquiry-msg" style="display:none; padding:10px 15px; margin-top:10px; border-radius:4px; font-weight:600;"></div>
               </div>
             </div>
           </div>
@@ -2641,391 +2641,49 @@
 
 
   <script>
-    function submit_form_and_whatsapp() {
-      // Get form values
-      var name = document.getElementById("Full Name").value;
-      var mobile = document.getElementById("Mobile No.").value || document.getElementById("Mobile No").value;
-      var email = document.getElementById("Email Id.").value;
-      var storageType = document.getElementById("Storage Type").value;
-      var fromLocation = document.getElementById("Origin_Location").value;
-      var toLocation = document.getElementById("Destination_Location").value;
+    function submitEnquiry() {
+      var name          = document.getElementById('Full Name').value.trim();
+      var mobile        = document.getElementById('Mobile No.').value.trim();
+      var email         = document.getElementById('Email Id.').value.trim();
+      var shifting_type = document.getElementById('Storage Type').value;
+      var from          = document.getElementById('Origin_Location').value.trim();
+      var to            = document.getElementById('Destination_Location').value.trim();
+      var msgDiv        = document.getElementById('enquiry-msg');
 
-      // Format the WhatsApp message
-      const message = `*New Enquiry Received*\n` +
-        `Name: ${name}\n` +
-        `Mobile: ${mobile}\n` +
-        `Email: ${email}\n` +
-        `Shifting Type: ${storageType}\n` +
-        `From: ${fromLocation}\n` +
-        `To: ${toLocation}`;
-
-      // Replace this with your WhatsApp number (with country code, no + or leading 0)
-      var phoneNumber = "919220161843";
-
-      //var message = "Hello! This is a test enquiry message.";
-      var encodedMessage = encodeURIComponent(message);
-
-      var whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-      window.open(whatsappURL, "_blank");
-
-
-      // Open WhatsApp
-      //window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-
-      // Optionally, submit the form as well
-      document.getElementById("HomapG_Enqform").submit();
-    }
-  </script>
-
-
-  <script type="text/javascript">
-    function submit_form() {
-      var strqcndunqvl = "EnqAddnSave2SnedERP";
-      var strqurlcndvl = "sendenquirydtlstoerp.html";
-      var chkauthstatus = true;
-      var chkfrstpgvartyp = document.getElementById('getPgcategory').value;
-      var preqfname = document.getElementById('Full Name').value;
-      if (preqfname == "") {
-        requiredFieldValidation('Full Name', 'dom_kycreqcustnameeMSG');
-        validadeName('Full Name', 'dom_kycreqcustnameeMSG');
-        chkauthstatus = false;
-        return false;
-      }
-      var preqmno = "";
-      var gtslcountrycode = "";
-      var gtslcountrydialnmvl = "";
-      if (chkfrstpgvartyp == "Domestic Moving" || chkfrstpgvartyp == "Secure Storage") {
-        gtslcountrycode = "91";
-        gtslcountrydialnmvl = "in";
-        preqmno = document.getElementById('Mobile No.').value;
-        if (document.getElementById('Mobile No.').value == "") {
-          requiredFieldValidation('Mobile No.', 'dom_kycreqcustmobilenoeMSG');
-          validateMobileno('Mobile No.', 'dom_kycreqcustmobilenoeMSG');
-          chkauthstatus = false;
-          return false;
-        }
-      } else {
-        gtslcountrycode = $(".iti__selected-dial-code").html();
-        gtslcountrycode = gtslcountrycode.replace('+', '');
-        if (gtslcountrycode == "") {
-          gtslcountrycode = "91";
-          gtslcountrydialnmvl = "in";
-        }
-        if (gtslcountrycode != '') {
-          gtslcountrydialnmvl = $("[data-dial-code=" + gtslcountrycode + "]").attr("data-country-code")
-        }
-        preqmno = document.getElementById('Mobile No').value;
-        if (document.getElementById('Mobile No').value == "") {
-          requiredFieldValidation('Mobile No', 'dom_kycreqcustmobilenoeMSG');
-          validateMobileno('Mobile No', 'dom_kycreqcustmobilenoeMSG');
-          chkauthstatus = false;
-          return false;
-        }
-      }
-      var preqemaild = document.getElementById('Email Id.').value;
-      if (document.getElementById('Email Id.').value == "") {
-        requiredFieldValidation('Email Id.', 'dom_kycreqcustemailideMSG');
-        verifyEmailId('Email Id.', 'dom_kycreqcustemailideMSG');
-        chkauthstatus = false;
-        return false;
-      }
-      var preqlocfrom = "";
-      var gtoriginlocrqtblid = "";
-      var greqlocto = "";
-      var gtdestinationlocrqtblid = "";
-      if (chkfrstpgvartyp == "International Moving") {
-        preqlocfrom = document.getElementById('Location From').value;
-        if (document.getElementById('Location From').value == "") {
-          reqchkFieldValidation('Location From', 'Location From is required', 'vwreqcustlocfromeMSG');
-          chkauthstatus = false;
-          return false;
-        }
-        greqlocto = document.getElementById('Location To').value;
-        if (document.getElementById('Location To').value == "") {
-          reqchkFieldValidation('Location To', 'Location To is required', 'vwcreqcustloctoeMSG');
-          chkauthstatus = false;
-          return false;
-        }
-        gtoriginlocrqtblid = "NA";
-        gtdestinationlocrqtblid = "NA";
-      } else {
-        preqlocfrom = document.getElementById('Origin_Location').value;
-        gtoriginlocrqtblid = document.getElementById('storiginlocrqtblid').value;
-        if (document.getElementById('Origin_Location').value == "") {
-          reqchkFieldValidation('Origin_Location', 'Location From is required', 'kycreqcustlocfromeMSG');
-          chkauthstatus = false;
-          return false;
-        }
-        if (chkfrstpgvartyp != "Secure Storage" && chkfrstpgvartyp != "Corporate Moving" && chkfrstpgvartyp != "GMS Moving" && chkfrstpgvartyp != "International Moving") {
-          greqlocto = document.getElementById('Destination_Location').value;
-          gtdestinationlocrqtblid = document.getElementById('stdestinationlocrqtblid').value;
-          if (document.getElementById('Destination_Location').value == "") {
-            reqchkFieldValidation('Destination_Location', 'Location To is required', 'dom_kycreqcustloctoeMSG');
-            chkauthstatus = false;
-            return false;
-          }
-        } else { greqlocto = "NA"; gtdestinationlocrqtblid = "NA"; }
-      }
-      var gtrqpincodevl = "NA";
-      var gtrqcmpnynmvl = "NA";
-      var gtrqmsgvl = "NA";
-      var inqtypevlarr = "NA";
-      if (chkfrstpgvartyp == "Corporate Moving" || chkfrstpgvartyp == "GMS Moving") {
-        gtrqpincodevl = document.getElementById('Pin Code').value;
-        if (gtrqpincodevl == "" || gtrqpincodevl == "NA") {
-          reqchkFieldValidation('Pin Code', 'Pin Code is required', 'pincodenmerr');
-          chkauthstatus = false;
-          return false;
-        }
-        inqtypevlarr = [];
-        $('input.inquerytypevl:checkbox:checked').each(function () { inqtypevlarr.push($(this).val()); });
-        if (inqtypevlarr.length == 0) {
-          $('#inqrytperr').text('Inquiry Type is required.');
-        }
-        gtrqcmpnynmvl = document.getElementById('Company Name').value;
-        if (gtrqcmpnynmvl == "" || gtrqcmpnynmvl == "") {
-          reqchkFieldValidation('Company Name', 'Company Name is required', 'cmpnynmerr');
-          chkauthstatus = false;
-          return false;
-        }
-        gtrqmsgvl = document.getElementById('Message').value;
-        if (gtrqmsgvl == "" || gtrqmsgvl == "") {
-          reqchkFieldValidation('Message', 'Message is required', 'msgerr');
-          chkauthstatus = false;
-          return false;
-        }
-        strqcndunqvl = "GSMENQSavenSnedNewAPI";
-        strqurlcndvl = "sndcropgsmenquirydtls.html";
-      }
-      var reqfrcontacttype = "NA";
-      var rqwebtype = "NA";
-      var rqgoodstype = "NA";
-      var rqcusttype = "NA";
-      if (chkfrstpgvartyp == "Secure Storage") {
-        var selectElementContTyp = document.getElementById('Storage Type');
-        reqfrcontacttype = document.getElementById('Storage Type').value;
-        var stselectedOption = selectElementContTyp.options[selectElementContTyp.selectedIndex];
-        rqwebtype = stselectedOption.getAttribute('data-webtype');
-        rqgoodstype = stselectedOption.getAttribute('data-goodstype');
-        rqcusttype = stselectedOption.getAttribute('data-custtype');
-      }
-      // var gtsecrcodevl = document.getElementById('Captcha Code').value;
-      // if (gtsecrcodevl == "") {
-      //   requiredFieldValidation('Captcha Code', 'dom_captcdevaleMSG');
-      //   chkauthstatus = false;
-      //   return false;
-      // }
-      if (chkauthstatus) {
-        $.ajax({
-          type: "POST",
-          url: "https://localhost:44329/api/adoFormSubmissions/submitEnquires",
-          data: {
-            sndfulluacname: preqfname,
-            sndkycuacmobileno: preqmno,
-            sndslcountrycode: gtslcountrycode,
-            sndslcountrydialnm: gtslcountrydialnmvl,
-            sndkycuacemailid: preqemaild,
-            sndpreqlocfrom: preqlocfrom,
-            sndgreqlocto: greqlocto,
-            sndchkfrstpgvartyp: chkfrstpgvartyp,
-            //sndfrcontacttype: reqfrcontacttype,
-            sndrqwebtype: rqwebtype,
-            sndrqgoodstype: rqgoodstype,
-            sndrqcusttype: rqcusttype,
-            // sndsecrucodevl: gtsecrcodevl,
-            sndoriginlocrqtblid: gtoriginlocrqtblid,
-            snddestinationlocrqtblid: gtdestinationlocrqtblid,
-            sndactrqnmchk: strqcndunqvl,
-            //sndrqpincodevl: gtrqpincodevl,
-            //sndrqcmpnynmvl: gtrqcmpnynmvl,
-            //sndrqmsgvl: gtrqmsgvl,
-            sndrqsertypvl: inqtypevlarr
-          },
-          success: function (response) {
-            var chkresponse = response
-            const chkmyArrayres = chkresponse.split("###");
-            var gtresvarvl = chkmyArrayres[0];
-            var gtresrefunqno = chkmyArrayres[1];
-            if (gtresvarvl == "Submitted Successfully!") {
-              var targeturlmst = "https://www.urbanshiftpackersandmovers.in/otpreqprocessingstatus-" + gtresrefunqno + ".html";
-              var bbsburl = targeturlmst;
-              window.location = bbsburl;
-            } else if (gtresvarvl == "ThankYou") {
-              var targeturlmst = "https://www.urbanshiftpackersandmovers.com/gmsthankyou.html";
-              var bbsburl = targeturlmst;
-              window.location = bbsburl;
-            } else {
-              document.getElementsByName('reqresctrlv').innerhtml = "Please fill all the required (*) fields.";
-            }
-          }
-        });
-      }
-    }
-  </script>
-
-  <script type="text/javascript">
-    $("#Origin_Location").autocomplete({
-
-      source: function (request, response) {
-
-        var reclocfrmnm = document.getElementById('Origin_Location').value.trim();
-        var recPgcategorynm = document.getElementById('getPgcategory').value.trim();
-        if (reclocfrmnm != '') {
-          $.ajax({
-            url: "https://localhost:44329/api/locations/GetAll",
-            type: "GET",
-            dataType: "JSON",
-
-            success: function (data) {
-              console.log(data);
-              response($.map(data, function (item) {
-                return {
-                  label: item.city,
-                  gtstassname: item.city,
-                  gtcmasteridvl: item.id,
-                };
-              }));
-            },
-            error: function (error) {
-              alert('error: ' + error.responseText);
-            }
-          });
-        }
-      },
-      change: function (event, ui) {
-        if (!ui.item) {
-          document.getElementById('kycreqcustlocfromeMSG').innerHTML = 'Invalid Location';
-          document.getElementById('kycreqcustlocfromeMSG').style.color = "red";
-          document.getElementById("Origin_Location").value = "";
-        } else {
-          document.getElementById("Origin_Location").value = ui.item.gtstassname;
-          document.getElementById("storiginlocrqtblid").value = ui.item.gtcmasteridvl;
-          document.getElementById('kycreqcustlocfromeMSG').innerHTML = "";
-        }
-      },
-    });
-    $("#Destination_Location").autocomplete({
-      source: function (request, response) {
-        var recPgcategorynm = document.getElementById('getPgcategory').value.trim();
-        var reclocfrmnm = document.getElementById('Destination_Location').value.trim();
-        if (reclocfrmnm != '') {
-          $.ajax({
-            url: "commonactreq.html",
-            type: "POST",
-            dataType: "JSON",
-            data: {
-              sndgtsrchtermrqvl: request.term,
-              sndrecpgcategorynmvl: recPgcategorynm,
-              sndnchkloctorqactvl: "ReqShiftfrLocNmlst",
-            },
-            success: function (data) {
-              response($.map(data, function (item) {
-                return {
-                  label: item.stcmname,
-                  gtstassname: item.stcmname,
-                  gtcmasteridvl: item.stcmasterid,
-                };
-              }));
-            },
-            error: function (error) {
-              alert('error: ' + error.responseText);
-            }
-          });
-        }
-      },
-      change: function (event, ui) {
-        if (!ui.item) {
-          document.getElementById('dom_kycreqcustloctoeMSG').innerHTML = 'Invalid Location';
-          document.getElementById('dom_kycreqcustloctoeMSG').style.color = "red";
-          document.getElementById("Destination_Location").value = "";
-        } else {
-          document.getElementById("Destination_Location").value = ui.item.gtstassname;
-          document.getElementById("stdestinationlocrqtblid").value = ui.item.gtcmasteridvl;
-          document.getElementById('dom_kycreqcustloctoeMSG').innerHTML = "";
-        }
-      },
-    });
-  </script>
-
-  <script type="text/javascript">
-    $(function () {
-      // Function to fetch all locations from API
-      function getLocationsFromApi() {
-        console.log("Origin_Location")
-        return $.ajax({
-          url: "https://localhost:44329/api/locations/getAllLocations",
-          type: "GET",
-          dataType: "JSON",
-          success: function (data) {
-            return data;  // Returning data from API
-          },
-          error: function (error) {
-            alert('Error fetching locations: ' + error.responseText);
-          }
-        });
+      if (!name || !mobile || !email || !from || !to) {
+        msgDiv.style.display = 'block';
+        msgDiv.style.background = '#ffe0e0';
+        msgDiv.style.color = '#c00';
+        msgDiv.textContent = 'Please fill all required fields.';
+        return;
       }
 
-      // Autocomplete for Origin_Location
-      $("#Origin_Location").autocomplete({
-        source: function (request, response) {
-          var reclocfrmnm = document.getElementById('Origin_Location').value.trim();
-          // console.log("City : ",reclocfrmnm);
-          var recPgcategorynm = document.getElementById('getPgcategory').value.trim();
-          if (reclocfrmnm != '') {
-            getLocationsFromApi().done(function (data) {
-              response($.map(data, function (item) {
-                return {
-                  label: item.city,
-                  gtstassname: item.city,
-                  gtcmasteridvl: item.id,
-                };
-              }));
-            });
-          }
-        },
-        change: function (event, ui) {
-          if (!ui.item) {
-            console.log(ui.item);
-            document.getElementById('kycreqcustlocfromeMSG').innerHTML = 'Invalid Location';
-            document.getElementById('kycreqcustlocfromeMSG').style.color = "red";
-            document.getElementById("Origin_Location").value = "";
+      fetch('/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, mobile: mobile, email: email, shifting_type: shifting_type, from: from, to: to })
+      })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          msgDiv.style.display = 'block';
+          if (data.success) {
+            msgDiv.style.background = '#e0ffe0';
+            msgDiv.style.color = '#080';
+            msgDiv.textContent = 'Thank you! Your enquiry has been submitted. We will contact you shortly.';
+            document.getElementById('HomapG_Enqform').reset();
           } else {
-            document.getElementById("Origin_Location").value = ui.item.label;
-            document.getElementById("storiginlocrqtblid").value = ui.item.gtcmasteridvl;
-            document.getElementById('kycreqcustlocfromeMSG').innerHTML = "";
+            msgDiv.style.background = '#ffe0e0';
+            msgDiv.style.color = '#c00';
+            msgDiv.textContent = data.message || 'Something went wrong. Please try again.';
           }
-        },
-      });
-
-      // Autocomplete for Destination_Location
-      $("#Destination_Location").autocomplete({
-        source: function (request, response) {
-          var reclocfrmnm = document.getElementById('Destination_Location').value.trim();
-          if (reclocfrmnm != '') {
-            getLocationsFromApi().done(function (data) {
-              response($.map(data, function (item) {
-                return {
-                  label: item.city,
-                  gtstassname: item.city,
-                  gtcmasteridvl: item.id,
-                };
-              }));
-            });
-          }
-        },
-        change: function (event, ui) {
-          if (!ui.item) {
-            document.getElementById('dom_kycreqcustloctoeMSG').innerHTML = 'Invalid Location';
-            document.getElementById('dom_kycreqcustloctoeMSG').style.color = "red";
-            document.getElementById("Destination_Location").value = "";
-          } else {
-            document.getElementById("Destination_Location").value = ui.item.label;
-            document.getElementById("stdestinationlocrqtblid").value = ui.item.gtcmasteridvl;
-            document.getElementById('dom_kycreqcustloctoeMSG').innerHTML = "";
-          }
-        },
-      });
-    });
+        })
+        .catch(function() {
+          msgDiv.style.display = 'block';
+          msgDiv.style.background = '#ffe0e0';
+          msgDiv.style.color = '#c00';
+          msgDiv.textContent = 'Network error. Please try again.';
+        });
+    }
   </script>
 
 
